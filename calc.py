@@ -46,15 +46,18 @@ def download_latest_script():
     input("Press Enter to exit...")
     exit()
 
+# If the script is running on Windows, use roaming appdata, else use ~/.config.
 if os.name == "nt":
     config_dir = os.path.join(os.getenv("APPDATA"), "pyculator")
 else:
     config_dir = os.path.expanduser("~/.config/pyculator")
 
+# If the config directory is not there, create it.
 os.makedirs(config_dir, exist_ok=True)
 
 config_path = os.path.join(config_dir, "config.json")
 
+# Loads the config file.
 def load_config():
     path = os.path.join(config_dir, "config.json")
     if not os.path.exists(path):
@@ -65,6 +68,7 @@ def load_config():
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+# Saves the config file.
 def save_config(config):
     with open(os.path.join(config_dir, "config.json"), "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4)
