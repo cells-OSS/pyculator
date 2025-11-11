@@ -11,7 +11,7 @@ from packaging import version
 
 __version__ = "v2.9"
 
-
+# Define functions for Auto-Updates.
 def get_latest_release_tag():
     try:
         url = "https://api.github.com/repos/cells-OSS/pyculator/releases/latest"
