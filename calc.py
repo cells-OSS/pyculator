@@ -93,7 +93,7 @@ def toggle_figlet():
 
 welcomeMessage_config_path = os.path.join(config_dir, "welcome_message.conf")
 
-
+# Changes the welcome message if changed.
 if os.path.exists(welcomeMessage_config_path):
     with open(welcomeMessage_config_path, "rb") as configFile:
         welcomeMessage = configFile.read().decode()
@@ -101,6 +101,7 @@ else:
     welcomeMessage = """
     ===============WELCOME===============
     """
+
 config = load_config()
 
 if config["figlet_welcome"]:
