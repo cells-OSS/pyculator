@@ -81,7 +81,7 @@ def toggle_auto_updates():
     
     save_config(config)
     print(f"Auto updates are now {'ON' if config['auto_updates'] else 'OFF'}")
-
+# Toggles figlet welcome message.
 def toggle_figlet():
     config = load_config()
     
@@ -92,6 +92,7 @@ def toggle_figlet():
 
 
 welcomeMessage_config_path = os.path.join(config_dir, "welcome_message.conf")
+
 
 if os.path.exists(welcomeMessage_config_path):
     with open(welcomeMessage_config_path, "rb") as configFile:
