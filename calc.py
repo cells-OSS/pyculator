@@ -139,6 +139,7 @@ chooseOption = int(
 
 while True:
 
+# Code used for adding, subtracting, multiplying, and dividing.
     if chooseOption == 1:
         operators = {
             ast.Add: operator.add,
@@ -203,6 +204,7 @@ while True:
                 input("Press any key to restart...")
                 os.execv(sys.executable, [sys.executable] + sys.argv)
 
+    # Code used for calculating the exponent of a number.
     if chooseOption == 2:
         firstInput = input("Base: ")
 
@@ -218,6 +220,7 @@ while True:
         exponent = float(secondInput)
         print(">", base ** exponent)
 
+    # Code used to round a number, there are plans to give it a calculation and then find the answer's rounded value.
     if chooseOption == 3:
         while True:
             userInput = input("> ")
@@ -228,6 +231,7 @@ while True:
             toRound = float(userInput)
             print(">", round(toRound))
 
+    # Code used to find the percentage of a number.
     if chooseOption == 4:
         while True:
             firstInput = input("Number: ")
@@ -245,6 +249,7 @@ while True:
             Percentage = float(secondInput)
             print(">", Percentage / 100 * Number)
 
+    # Code used to find the possible base(s) and exponent(s) of a given number.
     if chooseOption == 5:
         while True:
 
@@ -269,6 +274,7 @@ while True:
             if not found:
                 print(f"{number} cannot be expressed")
 
+    # Code used to find the smallest possible n-th root of a given number.
     if chooseOption == 6:
         while True:
             num = input("Enter the number: ")
@@ -301,6 +307,7 @@ while True:
             else:
                 print(f"{n}-th root of {number} = {a} * {n}-th_root({b})")
 
+    # Code used to find the multipliers of a given number.
     if chooseOption == 7:
         while True:
             userInput = input("> ")
@@ -315,6 +322,7 @@ while True:
                 if result.is_integer():
                     print(result)
 
+    # Code used for the settings interface.
     if chooseOption == 8:
         settingsMenu = """
     ===============SETTINGS===============
@@ -332,6 +340,7 @@ while True:
         if chooseSetting.lower() == "back":
             os.execv(sys.executable, [sys.executable] + sys.argv)
 
+        # Change the welcome message text.
         if chooseSetting == "1":
             new_welcomeMessage = input("New welcome message: ")
             config_path = os.path.join(config_dir, "welcome_message.conf")
@@ -346,6 +355,7 @@ while True:
             input("Press any key to restart...")
             os.execv(sys.executable, [sys.executable] + sys.argv)
 
+        # Code for the figlet welcome message interface.
         if chooseSetting == "2":
             figletWelcome = """
         ===============FIGLET===============
@@ -359,7 +369,8 @@ while True:
 
             if figletOption.lower() == "back":
                 os.execv(sys.executable, [sys.executable] + sys.argv)
-
+            
+            # Toggles the figlet welcome message.
             if figletOption == "1":
                 toggle_figlet()
 
@@ -367,6 +378,7 @@ while True:
                 input("Press any key to restart...")
                 os.execv(sys.executable, [sys.executable] + sys.argv)
 
+        # Resets the welcome message to default by deleting the config file.
         if chooseSetting == "3":
             config_path = os.path.join(config_dir, "welcome_message.conf")
 
@@ -381,6 +393,7 @@ while True:
                 input("Press any key to restart...")
                 os.execv(sys.executable, [sys.executable] + sys.argv)
 
+        # Code for the auto-update settings interface.
         if chooseSetting == "4":
             aUpdateMenu = """
     ===============AUTO-UPDATE===============
@@ -390,26 +403,18 @@ while True:
 
             print(aUpdateMenu)
             aUpdateOption = input(
-                "Which option would you like to choose(1/2)?: ")
+                "Which option would you like to choose(1)?: ")
 
             if aUpdateOption.lower() == "back":
                 os.execv(sys.executable, [sys.executable] + sys.argv)
 
+            # Toggles auto-updates.
             if aUpdateOption == "1":
                 toggle_auto_updates()
 
                 print("Changes saved successfully!")
                 input("Press any key to restart...")
                 os.execv(sys.executable, [sys.executable] + sys.argv)
-
-            if aUpdateOption == "2":
-                config_path = os.path.join(config_dir, "auto_update.conf")
-                
-                if os.path.exists(config_path):
-                    os.remove(config_path)
-                    print("Changes saved successfully!")
-                    input("Press any key to restart...")
-                    os.execv(sys.executable, [sys.executable] + sys.argv)
         else:
             input("Invalid option. Press any key to restart...")
             os.execv(sys.executable, [sys.executable] + sys.argv)
