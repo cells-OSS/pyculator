@@ -73,6 +73,7 @@ def save_config(config):
     with open(os.path.join(config_dir, "config.json"), "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4)
 
+# Toggles auto-updates.
 def toggle_auto_updates():
     config = load_config()
     
