@@ -102,11 +102,14 @@ else:
     ===============WELCOME===============
     """
 
+# Loads the config file.
 config = load_config()
 
+# If figlet welcome message is enabled, figlet the welcome message.
 if config["figlet_welcome"]:
     welcomeMessage = pyfiglet.figlet_format(welcomeMessage)
 
+# If auto-updates are enabled, check for updates.
 if config["auto_updates"]:
     if is_update_available(__version__):
         print("A new version of Pyculator is available!")
