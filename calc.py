@@ -135,7 +135,7 @@ TIP: If you want to come back to this menu at any time, just type "back"
 print(welcomeMessage, menu)
 
 chooseOption = int(
-    input("Which option would you like to choose(0/1/2/3/4/5/6/7/8)?: "))
+    input("Which option would you like to choose(1/2/3/4/5/6/7/8)?: "))
 
 while True:
 
