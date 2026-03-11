@@ -4,10 +4,6 @@ import sys
 import ast
 import json
 import operator
-import pyfiglet
-import requests
-from packaging import version
-
 
 __version__ = "v2.9"
 
@@ -89,6 +85,27 @@ def toggle_figlet():
     
     save_config(config)
     print(f"Figlet welcome message is now {'ON' if config['figlet_welcome'] else 'OFF'}")
+
+def install_packages(package):
+    if os.name == 'nt':
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", package])
+    else:
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", package, "--break-system-packages"])
+
+
+required_packages = ["requests", "packaging", "pyfiglet"]
+for package in required_packages:
+    try:
+        __import__(package)
+    except ImportError:
+        print(f"Installing required package {package}...")
+        install_packages(package)
+
+import pyfiglet
+import requests
+from packaging import version
 
 
 welcomeMessage_config_path = os.path.join(config_dir, "welcome_message.conf")
