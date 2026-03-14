@@ -146,14 +146,15 @@ menu = """
 5 = Finding the possible base(s) and the exponent(s) of the given number
 6 = Finding the smallest possible n-th root of the given number
 7 = Find the given numbers multipliers
-8 = Settings
+8 = Check if a number is a prime number
+9 = Settings
 
 TIP: If you want to come back to this menu at any time, just type "back"
 """
 print(welcomeMessage, menu)
 
 chooseOption = int(
-    input("Which option would you like to choose(1/2/3/4/5/6/7/8)?: "))
+    input("Which option would you like to choose(1/2/3/4/5/6/7/8/9)?: "))
 
 while True:
 
@@ -343,8 +344,30 @@ while True:
                 if result.is_integer():
                     print(result)
 
-    # Code used for the settings interface.
     if chooseOption == 8:
+        while True:
+            userInput = input("> ")
+
+            if userInput == "back":
+                os.execv(sys.executable, [sys.executable] + sys.argv)
+
+            num = int(userInput)
+            for answer in range(1, num + 1):
+
+                result = num / answer
+
+            lines = 0
+            for i in range(1, int(num) + 1):
+                if num % i == 0:
+                    lines += 1
+            
+            if lines == 2:
+                print("Prime.")
+            else:
+                print("Not prime.")
+
+    # Code used for the settings interface.
+    if chooseOption == 9:
         settingsMenu = """
     ===============SETTINGS===============
 
