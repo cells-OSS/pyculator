@@ -6,7 +6,7 @@ import json
 import operator
 import subprocess
 
-__version__ = "v2.9"
+__version__ = "v3.0"
 
 # Define functions for Auto-Updates.
 def get_latest_release_tag():
