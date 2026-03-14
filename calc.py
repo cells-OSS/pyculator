@@ -141,7 +141,7 @@ menu = """
 
 1 = Basic math expressions
 2 = Find the given exponent of the given number
-3 = Round a Number
+3 = Round a number
 4 = Find the given percentage of a number
 5 = Finding the possible base(s) and the exponent(s) of the given number
 6 = Finding the smallest possible n-th root of the given number
