@@ -185,7 +185,10 @@ while True:
 
                         quotient = left // right
                         remainder = left % right
-                        return f"{left} ÷ {right} = {quotient} remainder {remainder}"
+                        if remainder >=1:
+                            return f"{left} ÷ {right} = {quotient} remainder {remainder}"
+                        else:
+                            return f"{left} ÷ {right} = {quotient}"
 
                     return operators[type(node.op)](left, right)
 
