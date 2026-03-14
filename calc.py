@@ -4,6 +4,7 @@ import sys
 import ast
 import json
 import operator
+import subprocess
 
 __version__ = "v2.9"
 
